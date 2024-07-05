@@ -2,7 +2,7 @@
 FROM python:3.9-slim-buster AS builder
 WORKDIR /app
 
-RUN apt-get update && apt-get install -y git && apt-get clean
+RUN apt-get update && apt-get install -y --no-install-recommends git=1:2.20.* && apt-get clean
 COPY requirements-dev.txt /app/
 RUN pip install --no-cache-dir -r requirements-dev.txt
 

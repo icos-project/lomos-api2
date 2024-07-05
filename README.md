@@ -102,7 +102,7 @@ kubectl apply -f k8s/lomos-api2.yml
 ```
 
 # Legal
-The lomos-api2 is released under the comercial license.
+The lomos-api2 is released under the Apache 2.0 license.
 Copyright © 2022-2024 XLAB d.o.o. All rights reserved.
 
 🇪🇺 This work has received funding from the European Union's HORIZON research and innovation programme under grant agreement No. 101070177.
