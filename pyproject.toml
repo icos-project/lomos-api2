@@ -1,0 +1,59 @@
+[project]
+name = "lomos-api2"
+description = "for LOMOS"
+requires-python = ">=3.7"
+license = {text = "commercial"}
+dependencies = [
+    "flask",
+    "flask-login",
+    "python-dotenv",
+    "pyyaml",
+    "elasticsearch",
+    "opensearch-py",
+    "werkzeug",
+]
+
+dynamic = ["version"]
+# version = "__VERSION_PLACEHOLDER__"
+
+[project.urls]
+repository = "https://gitlab.xlab.si/lomos/lomos-api2/"
+
+[build-system]
+requires = [
+    "setuptools",
+    "setuptools-scm",
+]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools_scm]
+# version_file = "lomos_api2/_version.py"
+root = "."
+
+[tool.setuptools]
+# include-package-data = true
+
+[tool.setuptools.packages.find]
+include = [
+    "lomos_api2",
+#    "lomos_cli",
+#    "lomos_cli.pipes",
+#    "lomos_cli.pipes.data",
+#    "lomos_cli.pipes.evaluation",
+#    "lomos_cli.pipes.lomos",
+]
+# exclude = ["docs*", "tests"]
+
+[project.scripts]
+# lomos-cli = "lomos_cli.run_lomos:main_cli"
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra -q"
+testpaths = [
+    "tests",
+]
+pythonpath = "."
+env_files = [
+    ".env",
+]

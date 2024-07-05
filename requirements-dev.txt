@@ -1,0 +1,7 @@
+build
+pytest
+mock
+pytest-cov
+pytest-dotenv
+pytest-flask
+requests

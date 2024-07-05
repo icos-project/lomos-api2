@@ -1,0 +1,40 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+   name: lomos-api2-demo
+   namespace: default
+spec:
+   replicas: 1
+   selector:
+      matchLabels:
+         bb: web
+   template:
+      metadata:
+         labels:
+            bb: web
+      spec:
+         containers:
+            - name: lomos-api2-site
+#              image: docker.io/library/lomos-api2:0.0.1
+              image: registry-gitlab.xlab.si/justin.cinkelj/lomos-api2:0.0.1
+              imagePullPolicy: Always
+              env:
+                - name: FLASK_LOMOS_OPENSEARCH_API_URL
+                  value: http://10.160.3.177:32243
+                - name: FLASK_LOMOS_INDEX_NAME
+                  value: test_ss4o_logs-dev-contrl-x-namespace_logs_structured
+---
+apiVersion: v1
+kind: Service
+metadata:
+   name: lomos-api2-entrypoint
+   namespace: default
+spec:
+   type: NodePort
+   selector:
+      bb: web
+   ports:
+      - port: 25001
+        targetPort: 25001
+        nodePort: 30001

@@ -1,0 +1,9 @@
+.venv*
+.idea
+.env
+
+__pycache__
+*.pyc
+lomos_api2.egg-info/
+dist/
+build/
